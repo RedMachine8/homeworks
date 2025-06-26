@@ -2,10 +2,10 @@ const progress = document.getElementById('progress');
 const form = document.getElementById('form');
 
 const xhr = new XMLHttpRequest();
-xhr.addEventListener('progress', (e) => {
+xhr.upload.onprogress = function(e) {
     const percent = (e.loaded / e.total) * 100;
     progress.value = percent;
-});
+};
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
